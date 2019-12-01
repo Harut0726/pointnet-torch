@@ -91,15 +91,15 @@ def PointNet(nb_classes):
     global_feature = MaxPooling1D(pool_size=2048)(g)
 
     # point_net_cls
-    c = Dense(512, activation='relu')(global_feature)
-    c = BatchNormalization()(c)
-    c = Dropout(0.5)(c)
-    c = Dense(256, activation='relu')(c)
-    c = BatchNormalization()(c)
-    c = Dropout(0.5)(c)
-    c = Dense(nb_classes, activation='softmax')(c)
-    prediction = Flatten()(c)
+#     c = Dense(512, activation='relu')(global_feature)
+#     c = BatchNormalization()(c)
+#     c = Dropout(0.5)(c)
+#     c = Dense(256, activation='relu')(c)
+#     c = BatchNormalization()(c)
+#     c = Dropout(0.5)(c)
+#     c = Dense(nb_classes, activation='softmax')(c)
+#     prediction = Flatten()(c)
 
-    model = Model(inputs=input_points, outputs=prediction)
+    model = Model(inputs=input_points, outputs=global_feature)
 
     return model
